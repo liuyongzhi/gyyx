@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>login</title>
+</head>
+
+<body>
+	<form action="login.do" method="GET">
+		<table>
+			<tr><td>用户Id：</td><td><input type="text" name="userId"/></td></tr>
+			<tr><td>密码：</td><td><input type="password" name="password"></td></tr>
+			<tr><td><input type="submit" value="登陆"></td><td><a href="toRegister.do">注册</a></td></tr>
+		</table>
+	</form>
+</body>
+</html>
+
+
+
+
+
