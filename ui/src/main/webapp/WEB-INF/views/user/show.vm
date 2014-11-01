@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>用户信息表</title>
+</head>
+<style type="text/css">
+table th,td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+</style>
+<body>
+	<h2 align="center">用户列表</h2>
+	<table width="100%" style="border-collapse: collapse;">
+		<tr>
+			<td colspan="10">
+				<form action="query.do" method="POST">
+					用户姓名1：<input type="text" name="userName" />&nbsp;&nbsp;&nbsp;&nbsp;
+					用户姓名2：<input type="text" name="userName" />&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="submit" value="查询" />
+				</form>
+			</td>
+		</tr>
+		<tr>
+			<th><input type="checkbox" /></th>
+			<th>用户编号</th>
+			<th>用户名</th>
+			<th>密码</th>
+			<th>性别</th>
+			<th>年龄</th>
+			<th>电话号码</th>
+			<th>Email邮件地址</th>
+			<th>备注</th>
+			<th>操作</th>
+		</tr>
+		#foreach($user in $userList)
+		<tr>
+			<th><input type="checkbox" value="${user.userId}" /> </th>
+			<td>${user.userId}</td>
+			<td>${user.userName}</td>
+			<td>${user.password}</td>
+			<td>${user.sex}</td>
+			<td>${user.age}</td>
+			<td>${user.phone}</td>
+			<td>${user.email}</td>
+			<td>${user.info}</td>
+			<td style="text-align: center;"><a
+				href="delete.do?userId=${user.userId}">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+				href="toUpdate.do?userId=${user.userId}">修改</a></td>
+		</tr>
+		#end
+	</table>
+	<h2 align="center">
+		<a href="toRegister.do">注册</a>
+	</h2>
+</body>
+</html>
+
+
+
+
+

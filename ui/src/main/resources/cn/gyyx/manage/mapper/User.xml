@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.manage.mapper.UserMapper">
+	<resultMap type="User" id="User">
+		<id property="userId" column="user_id" />
+		<result property="code" column="code" />
+		<result property="userName" column="user_name" />
+		<result property="password" column="password" />
+		<result property="isOpen" column="is_open" />
+
+		<result property="sex" column="sex" />
+		<result property="age" column="age" />
+		<result property="phone" column="phone" />
+		<result property="email" column="email" />
+		<result property="info" column="info" />
+	</resultMap>
+
+	<!-- 根据用户的UserId查询用户信息 -->
+	<select id="getObjectByUserId" parameterType="String" resultMap="User">
+		select * from us_user_tb a,us_userinfo_tb b where a.user_id=b.user_id
+		and a.user_id=#{userId};
+	</select>
+
+	<!-- 得到所有用户信息 -->
+	<select id="getAll" parameterType="int" resultMap="User">
+		select * from
+		us_user_tb a,us_userinfo_tb b where a.user_id=b.user_id;
+	</select>
+
+	<!-- 根据多用户名查询 -->
+	<select id="getAllByArr" resultMap="User">
+		select * from us_user_tb a,us_userinfo_tb b where a.user_id=b.user_id
+		and user_name in
+		<foreach collection="array" index="index" item="item" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+
+	<!-- 向用户表插入用户数据 -->
+	<insert id="insertUser" parameterType="User">
+		<!-- 向us_use_info表中插入数据 -->
+		insert into us_user_tb
+		(user_id,user_name,password) values
+		(#{userId},#{userName},#{password});
+	</insert>
+
+	<!-- 向用户详细表插入数据 -->
+	<insert id="insertUserInfo" parameterType="User">
+		<!-- 向us_userinfp_tb表中插入数据 -->
+		insert into us_userinfo_tb
+		(user_id,sex,age,phone,email,info) values
+		(#{userId},#{sex},#{age},#{phone},#{email},#{info});
+	</insert>
+
+	<!-- 根据用户userId更新用户表数据 -->
+	<update id="updateUser" parameterType="User">
+		update us_user_tb set
+		<if test="userName!=null or userName!= ''">
+			user_name=#{userName},
+		</if>
+		<if test="password!=null or password!=''">
+			password=#{password},
+		</if>
+		<if test="isOpen!=null or isOpen!=''">
+			is_open=#{isOpen}
+		</if>
+		where user_id=#{userId};
+	</update>
+
+	<!-- 根据用户userId更新用户详细表中的数据 -->
+	<update id="updateUserInfo" parameterType="User">
+		update us_userinfo_tb set
+		<if test="sex!=null or sex!= ''">
+			sex=#{sex},
+		</if>
+		<if test="age!=null or age!=''">
+			age=#{age},
+		</if>
+		<if test="phone!=null or phone!=''">
+			phone=#{phone},
+		</if>
+		<if test="email!=null or email!=''">
+			email=#{email},
+		</if>
+		<if test="info!=null or info!=''">
+			info=#{info}
+		</if>
+		where user_id=#{userId};
+	</update>
+
+	<!-- 根据用户userId删除用户数据 -->
+	<delete id="deleteUser" parameterType="User">
+		delete from us_user_tb
+		where user_id=#{userId};
+	</delete>
+
+	<!-- 根据用户userId输出用户详细表中的数据 -->
+	<delete id="deleteUserInfo" parameterType="User">
+		delete from
+		us_userinfo_tb where user_id=#{userId};
+	</delete>
+
+
+</mapper>
