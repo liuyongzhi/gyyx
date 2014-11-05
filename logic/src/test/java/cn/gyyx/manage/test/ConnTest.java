@@ -8,7 +8,6 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import cn.gyyx.manage.beans.UserBean;
 import cn.gyyx.manage.common.MybatisSessionFactory;
 import cn.gyyx.manage.dao.UserMapper;
-
 /**
  * -------------------------------------------------------------------------
  * @版权所有：北京光宇在线科技有限责任公司
