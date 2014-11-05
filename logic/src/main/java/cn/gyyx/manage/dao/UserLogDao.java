@@ -4,9 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import cn.gyyx.manage.beans.UserLog;
-import cn.gyyx.manage.common.SessionFactory;
-import cn.gyyx.manage.mapper.UserLogMapper;
+import cn.gyyx.manage.beans.UserLogBean;
+import cn.gyyx.manage.common.MybatisSessionFactory;
 
 /**
  * -------------------------------------------------------------------------
@@ -23,15 +22,14 @@ public class UserLogDao {
 	
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年11月1日
 	 * @描述：得到所有用户的登录信息
 	 * @Title: getAll 
 	 * @Description: TODO 
 	 * @return List<UserLog> 所有用户登录信息列表
 	 */
-	public List<UserLog> getAll(){
-		SqlSession sqlSession = SessionFactory.getInstance().openSession();
+	public List<UserLogBean> getAll(){
+		SqlSession sqlSession = MybatisSessionFactory.getInstance().openSession();
 		try {
 			UserLogMapper userLogMapper = sqlSession.getMapper(UserLogMapper.class);
 			return userLogMapper.getAll();
@@ -42,7 +40,6 @@ public class UserLogDao {
 	
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年11月1日
 	 * @描述：向数据库中插入一条登录日志
 	 * @Title: insertUserLog 
@@ -50,9 +47,9 @@ public class UserLogDao {
 	 * @param userLog
 	 * @return Boolean
 	 */
-	public Boolean insertUserLog(UserLog userLog){
+	public Boolean insertUserLog(UserLogBean userLog){
 		Boolean result=false;
-		SqlSession sqlSession = SessionFactory.getInstance().openSession();
+		SqlSession sqlSession = MybatisSessionFactory.getInstance().openSession();
 		try {
 			UserLogMapper userLogMapper = sqlSession.getMapper(UserLogMapper.class);
 			result=userLogMapper.insert(userLog);

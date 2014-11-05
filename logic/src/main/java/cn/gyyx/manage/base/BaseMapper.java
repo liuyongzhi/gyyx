@@ -17,7 +17,6 @@ import java.util.Map;
 public interface BaseMapper<T> {
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年10月29日
 	 * @描述：通过code值返回所需要的某条信息
 	 * @Title: getObjectByCode 
@@ -29,7 +28,6 @@ public interface BaseMapper<T> {
 
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年10月29日
 	 * @描述：通过Map得到所需信息
 	 * @Title: getObjectByMap 
@@ -41,7 +39,6 @@ public interface BaseMapper<T> {
 	
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年10月29日
 	 * @描述：得到数据库中某张表所有信息
 	 * @Title: getAll 
@@ -52,7 +49,6 @@ public interface BaseMapper<T> {
 
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年10月29日
 	 * @描述：向数据库中插入一条数据
 	 * @Title: insert 
@@ -64,7 +60,6 @@ public interface BaseMapper<T> {
 
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年10月29日
 	 * @描述：更新数据
 	 * @Title: update 
@@ -76,7 +71,6 @@ public interface BaseMapper<T> {
 	
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年10月29日
 	 * @描述：根据对象删除对象
 	 * @Title: delete 

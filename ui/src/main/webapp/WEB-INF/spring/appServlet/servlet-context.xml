@@ -26,13 +26,15 @@
 
 	<context:component-scan base-package="cn.gyyx.manage.controller" />
 
+	<resources location="/WEB-INF/Contents/" mapping="/Contents/**"/>
+	<resources location="/WEB-INF/Script/" mapping="/WEB-INF/Script/"/>
 
 	<!-- velocity环境配置 -->
 	<beans:bean id="velocityConfigurer"
 		class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
 		<beans:property name="configLocation"
 			value="classpath:cn/gyyx/manage/properties/velocity.properties"></beans:property>
-		<beans:property name="resourceLoaderPath" value="/WEB-INF/views/user"></beans:property>
+		<beans:property name="resourceLoaderPath" value="/WEB-INF/views/"></beans:property>
 	</beans:bean>
 	
 	<!-- velocity视图解析器 -->

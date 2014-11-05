@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import cn.gyyx.manage.beans.User;
+import cn.gyyx.manage.beans.UserBean;
 import cn.gyyx.manage.bll.UserBLL;
 import cn.gyyx.manage.service.UserService;
 
@@ -36,7 +36,6 @@ public class UserController {
 
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年10月29日
 	 * @描述：跳转到注册页面
 	 * @Title: home
@@ -45,12 +44,11 @@ public class UserController {
 	 */
 	@RequestMapping("/")
 	public String home() {
-		return "redirect:/login.do";
+		return "meetingOrder/meetingOrderTable";
 	}
 
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年10月29日
 	 * @描述：跳转到注册页面
 	 * @Title: add
@@ -59,12 +57,11 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/toRegister.do")
 	public String add() {
-		return "register";
+		return "user/register";
 	}
 
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年10月29日
 	 * @描述：删除用户信息
 	 * @Title: delete
@@ -73,14 +70,13 @@ public class UserController {
 	 * @return String 重定向到得到所有信息函数
 	 */
 	@RequestMapping(value = "/delete.do", method = RequestMethod.GET)
-	public String delete(User user) {
+	public String delete(UserBean user) {
 		userBLL.deleteUser(user);
 		return "redirect:/getAll.do";
 	}
 
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年10月29日
 	 * @描述：跳转到更新页面
 	 * @Title: toUpdate
@@ -90,15 +86,14 @@ public class UserController {
 	 * @return String 更新页面地址
 	 */
 	@RequestMapping(value = "/toUpdate.do", method = RequestMethod.GET)
-	public String toUpdate(User user, Model model) {
+	public String toUpdate(UserBean user, Model model) {
 		user = userBLL.getUserByUserId(user.getUserId());
 		model.addAttribute("user", user);
-		return "update";
+		return "user/update";
 	}
 
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年10月29日
 	 * @描述：更新用户信息
 	 * @Title: update
@@ -107,14 +102,13 @@ public class UserController {
 	 * @return String 重定向得到所有用户信息函数
 	 */
 	@RequestMapping(value = "/update.do", method = RequestMethod.POST)
-	public String update(User user) {
+	public String update(UserBean user) {
 		userBLL.updateUser(user);
 		return "redirect:/getAll.do";
 	}
 
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年10月29日
 	 * @描述：添加用户信息
 	 * @Title: register
@@ -123,7 +117,7 @@ public class UserController {
 	 * @return String 重定向得到所有用户信息函数
 	 */
 	@RequestMapping(value = "/register.do", method = RequestMethod.POST)
-	public String register(User user, HttpServletRequest request,
+	public String register(UserBean user, HttpServletRequest request,
 			HttpServletResponse response) {
 		String uuidStr = userService.regsiter(user, request.getRemoteAddr());
 		if (uuidStr != null) {
@@ -137,7 +131,6 @@ public class UserController {
 
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年10月29日
 	 * @描述：得到用户类表
 	 * @Title: getAll
@@ -147,14 +140,13 @@ public class UserController {
 	 */
 	@RequestMapping("/getAll.do")
 	public String getAll(Model model) {
-		List<User> userList = userBLL.getAll();
+		List<UserBean> userList = userBLL.getAll();
 		model.addAttribute("userList", userList);
-		return "show";
+		return "user/show";
 	}
 
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年10月30日
 	 * @描述：多功能查询
 	 * @Title: query
@@ -167,15 +159,14 @@ public class UserController {
 	public String query(String[] userName, Model model) {
 		if (userName != null) {
 			System.out.println(userName[0]);
-			List<User> userList = userBLL.getAllByArr(userName);
+			List<UserBean> userList = userBLL.getAllByArr(userName);
 			model.addAttribute("userList", userList);
 		}
-		return "show";
+		return "user/show";
 	}
 
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年10月30日
 	 * @描述：登陆验证并设置Cookie值
 	 * @Title: login
@@ -188,16 +179,17 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
 	public String login(
-			User user,
+			UserBean user,
 			@CookieValue(value = "gyyxLogin", required = false) String gyyxLogin,
 			HttpServletRequest request, HttpServletResponse response) {
 		String uuidStr=userService.login(user, request.getRemoteAddr(), gyyxLogin);
 		if (uuidStr!=null) {
 			Cookie cookie=new Cookie("gyyxLogin", uuidStr);
+			cookie.setMaxAge(2*60);
 			response.addCookie(cookie);
 			return "redirect:/getAll.do";
 		} else {
-			return "login";
+			return "user/login";
 		}
 	}
 }

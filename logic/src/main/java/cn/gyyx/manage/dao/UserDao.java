@@ -3,10 +3,10 @@ package cn.gyyx.manage.dao;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.apache.log4j.Logger;
 
-import cn.gyyx.manage.beans.User;
-import cn.gyyx.manage.common.SessionFactory;
-import cn.gyyx.manage.mapper.UserMapper;
+import cn.gyyx.manage.beans.UserBean;
+import cn.gyyx.manage.common.MybatisSessionFactory;
 
 /**
  * -------------------------------------------------------------------------
@@ -22,18 +22,19 @@ import cn.gyyx.manage.mapper.UserMapper;
  *                   -------------
  */
 public class UserDao {
-
+	Logger logger=Logger.getLogger(UserDao.class);
+	
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年11月1日
 	 * @描述：得到用户列表
 	 * @Title: getAll 
 	 * @Description: TODO 
 	 * @return List<User> 返回用户信息列表
 	 */
-	public List<User> getAll() {
-		SqlSession sqlSession = SessionFactory.getInstance().openSession();
+	public List<UserBean> getAll() {
+		logger.debug("得到所有用户信息！");
+		SqlSession sqlSession = MybatisSessionFactory.getInstance().openSession();
 		try {
 			UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 			return userMapper.getAll();
@@ -44,7 +45,6 @@ public class UserDao {
 	
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年11月1日
 	 * @描述：根据用户userId查询用户信息
 	 * @Title: getUserByUserId 
@@ -52,8 +52,8 @@ public class UserDao {
 	 * @param userId 用户的userId
 	 * @return User userId对应的用户详细信息类
 	 */
-	public User getUserByUserId(String userId){
-		SqlSession sqlSession = SessionFactory.getInstance().openSession();
+	public UserBean getUserByUserId(String userId){
+		SqlSession sqlSession = MybatisSessionFactory.getInstance().openSession();
 		try {
 			UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 			return userMapper.getObjectByUserId(userId);
@@ -64,7 +64,6 @@ public class UserDao {
 	
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年11月1日
 	 * @描述：多用户名查询
 	 * @Title: getAllByArr 
@@ -72,8 +71,8 @@ public class UserDao {
 	 * @param arr 用户名数组
 	 * @return List<User> 用户名数组对应的用户详细信息
 	 */
-	public List<User> getAllByArr(String[] userNameArr){
-		SqlSession sqlSession = SessionFactory.getInstance().openSession();
+	public List<UserBean> getAllByArr(String[] userNameArr){
+		SqlSession sqlSession = MybatisSessionFactory.getInstance().openSession();
 		try {
 			UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 			return userMapper.getAllByArr(userNameArr);
@@ -84,7 +83,6 @@ public class UserDao {
 	
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年11月1日
 	 * @描述：向用户数据表和用户详细信息表中插入数据
 	 * @Title: insertUser 
@@ -92,9 +90,9 @@ public class UserDao {
 	 * @param user 用户信息类
 	 * @return Boolean 是否插入成功
 	 */
-	public Boolean insertUser(User user) {
+	public Boolean insertUser(UserBean user) {
 		Boolean result=false;
-		SqlSession sqlSession = SessionFactory.getInstance().openSession();
+		SqlSession sqlSession = MybatisSessionFactory.getInstance().openSession();
 		try {
 			UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 			result = userMapper.insertUser(user);
@@ -108,7 +106,6 @@ public class UserDao {
 	
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年11月1日
 	 * @描述：更新用户表和用户详细信息表中的数据
 	 * @Title: updateUser 
@@ -116,9 +113,9 @@ public class UserDao {
 	 * @param user 用户信息类
 	 * @return Boolean 数据是否更新成功
 	 */
-	public Boolean updateUser(User user) {
+	public Boolean updateUser(UserBean user) {
 		Boolean result=false;
-		SqlSession sqlSession = SessionFactory.getInstance().openSession();
+		SqlSession sqlSession = MybatisSessionFactory.getInstance().openSession();
 		try {
 			UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 			result = userMapper.updateUser(user);
@@ -132,7 +129,6 @@ public class UserDao {
 	
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年11月1日
 	 * @描述：删除用户表和用户详细信息表中的数据
 	 * @Title: deleteUser 
@@ -140,9 +136,9 @@ public class UserDao {
 	 * @param user 用户信息类
 	 * @return Boolean 数据是否删除成功
 	 */
-	public Boolean deleteUser(User user) {
+	public Boolean deleteUser(UserBean user) {
 		Boolean result=false;
-		SqlSession sqlSession = SessionFactory.getInstance().openSession();
+		SqlSession sqlSession = MybatisSessionFactory.getInstance().openSession();
 		try {
 			UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 			result = userMapper.deleteUser(user);

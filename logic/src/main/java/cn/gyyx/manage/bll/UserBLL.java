@@ -6,7 +6,7 @@ import java.util.concurrent.TimeoutException;
 
 import net.rubyeye.xmemcached.MemcachedClient;
 import net.rubyeye.xmemcached.exception.MemcachedException;
-import cn.gyyx.manage.beans.User;
+import cn.gyyx.manage.beans.UserBean;
 import cn.gyyx.manage.common.MemcachedManager;
 import cn.gyyx.manage.dao.UserDao;
 
@@ -27,20 +27,18 @@ public class UserBLL {
 	
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年11月1日
 	 * @描述：获取所有用户信息
 	 * @Title: getAll 
 	 * @Description: TODO 
 	 * @return List<User> 用户信息列表
 	 */
-	public List<User> getAll(){
+	public List<UserBean> getAll(){
 		return userDao.getAll();
 	}
 	
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年11月1日
 	 * @描述：多用户查询用户信息
 	 * @Title: getAllByArr
@@ -48,13 +46,12 @@ public class UserBLL {
 	 * @param userNameArr  用户名数组
 	 * @return List<User> 多用户列表信息
 	 */
-	public List<User> getAllByArr(String[] userNameArr){
+	public List<UserBean> getAllByArr(String[] userNameArr){
 		return userDao.getAllByArr(userNameArr);
 	}
 	
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年11月1日
 	 * @描述：根据用户userId查询用户信息
 	 * @Title: getUserByUserId 
@@ -62,8 +59,8 @@ public class UserBLL {
 	 * @param userId 用户userId
 	 * @return User 用户信息类
 	 */
-	public User getUserByUserId(String userId) {
-		User user = null;
+	public UserBean getUserByUserId(String userId) {
+		UserBean user = null;
 		try {
 			//从memcached中获取数据
 			user = mcc.get("user" + userId);
@@ -86,7 +83,6 @@ public class UserBLL {
 	
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年11月1日
 	 * @描述：向数据库中插入用户信息
 	 * @Title: insertUser 
@@ -94,7 +90,7 @@ public class UserBLL {
 	 * @param user 用户信息类
 	 * @return Boolean 是否插入成功
 	 */
-	public Boolean insertUser(User user) {
+	public Boolean insertUser(UserBean user) {
 		Boolean result = false;
 		try {
 			// 判断该用户是否已注册,如果没注册则插入
@@ -120,7 +116,6 @@ public class UserBLL {
 	
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年11月1日
 	 * @描述：更新数据库中用户信息
 	 * @Title: updateUser 
@@ -128,7 +123,7 @@ public class UserBLL {
 	 * @param user 用户信息类
 	 * @return Boolean 是否更新成功
 	 */
-	public Boolean updateUser(User user) {
+	public Boolean updateUser(UserBean user) {
 		Boolean result = false;
 		try {
 			result = userDao.updateUser(user);
@@ -151,7 +146,6 @@ public class UserBLL {
 	
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年11月1日
 	 * @描述：删除数据库中数据
 	 * @Title: deleteUser 
@@ -159,7 +153,7 @@ public class UserBLL {
 	 * @param user 用户信息类
 	 * @return Boolean 用户信息是否删除成功
 	 */
-	public Boolean deleteUser(User user) {
+	public Boolean deleteUser(UserBean user) {
 		Boolean result = false;
 		try {
 			result = userDao.deleteUser(user);
@@ -182,14 +176,13 @@ public class UserBLL {
 	
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年11月1日
 	 * @描述：随机生成一个UUID作为键，将user对象保存到memcached
 	 * @Title: createUUID 
 	 * @Description: TODO 
 	 * @return String 返回UUID字符串
 	 */
-	public String createUUID(User user){
+	public String createUUID(UserBean user){
 		String uuidStr=null;
 		try {
 			UUID uuid=UUID.randomUUID();
@@ -210,7 +203,6 @@ public class UserBLL {
 	
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年11月1日
 	 * @描述：判断uuidStr在memcached是否存在
 	 * @Title: isExistUUID 
@@ -221,7 +213,7 @@ public class UserBLL {
 	public Boolean isExistUUID(String uuidStr){
 		Boolean result=false;
 		try {
-			User user=mcc.get(uuidStr);
+			UserBean user=mcc.get(uuidStr);
 			if(user!=null){
 				result=true;
 			}

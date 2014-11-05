@@ -14,7 +14,7 @@ import java.util.Date;
  * @本类主要用途描述：用户登录日志
  *-------------------------------------------------------------------------
  */
-public class UserLog implements Serializable {
+public class UserLogBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	//主键

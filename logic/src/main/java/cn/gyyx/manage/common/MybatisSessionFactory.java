@@ -18,7 +18,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
  * @本类主要用途描述：构建SqlSessionFactory类，产生SqlSessionFactory
  *-------------------------------------------------------------------------
  */
-public class SessionFactory {
+public class MybatisSessionFactory {
 
 	private static SqlSessionFactory sqlSessionFactory = null;
 
@@ -38,7 +38,6 @@ public class SessionFactory {
 
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年10月29日
 	 * @描述：通过调用getInstance方法返回SqlSessionFactory工厂
 	 * @Title: getInstance 

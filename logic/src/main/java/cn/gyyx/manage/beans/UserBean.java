@@ -15,7 +15,7 @@ import java.io.Serializable;
  *                            ----------------------------------------------------
  *                            ---------------------
  */
-public class User implements Serializable {
+public class UserBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	// 用户code，自增
 	private Integer code;

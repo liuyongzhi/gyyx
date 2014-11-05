@@ -1,0 +1,616 @@
+﻿<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <title>光宇OA系统</title>
+    <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="Contents/css/font.css" type="text/css" />
+    <link rel="stylesheet" href="Script/calendar/bootstrap_calendar.css" type="text/css" />
+    <link rel="stylesheet" href="Contents/css/app.v2.css" type="text/css" />
+    <link href="Script/datatables/datatables.css" rel="stylesheet" />
+    <link href="Script/datepicker/datepicker.css" rel="stylesheet" />
+    <link rel="stylesheet" href="Contents/css/orderRoom.css" type="text/css" />
+    <style>
+
+    </style>
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+
+    <script type="text/javascript" src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="Script/DatePicker/WdatePicker.js"></script>
+    <!--[if lt IE 9]>
+        <script src="Script/ie/html5shiv.js"></script>
+        <script src="Script/ie/respond.min.js"></script>
+        <script src="Script/ie/excanvas.js"></script> 
+    <![endif]-->
+</head>
+<body>
+    <section class="vbox">
+        <!--公用头部  begin-->
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs">
+            <div class="navbar-header aside-md">
+                <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <a href="#" class="navbar-brand" data-toggle="fullscreen">
+                    <img src="Contents/images/gyyxlogo.png" class="m-r-sm logo">办公系统
+                </a>
+                <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user">
+                    <i class="fa fa-cog"></i>
+                </a>
+            </div>
+            <ul class="nav navbar-nav hidden-xs">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle dker" data-toggle="dropdown">
+                        <i class="fa fa-building-o"></i>
+                        <span class="font-bold">个人信息</span>
+                    </a>
+                    <section class="dropdown-menu aside-xl on animated fadeInLeft no-borders lt">
+                        <div class="wrapper lter m-t-n-xs">
+                            <div class="clear">
+                                <a href="#">
+                                    <span class="text-white font-bold">孙维晟</span>
+                                </a>
+                                <small class="block">开发部总监</small>
+                                <a href="#">
+                                    <span class="text-white font-bold">sunweisheng@gyyx.cn</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row m-l-none m-r-none m-b-n-xs text-center">
+                            <div class="col-xs-4">
+                                <div class="padder-v">
+                                    <span class="m-b-xs h4 block text-white">245</span>
+                                    <small class="text-muted">代办事务</small>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 dk">
+                                <div class="padder-v">
+                                    <span class="m-b-xs h4 block text-white">55</span>
+                                    <small class="text-muted">通知公告</small>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="padder-v">
+                                    <span class="m-b-xs h4 block text-white">2,035</span>
+                                    <small class="text-muted">邮件</small>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </li>
+                <li>
+                    <div class="m-t m-l">
+                        <a href="price.html" class="dropdown-toggle btn btn-xs btn-primary" title="Upgrade">
+                            <i class="fa fa-long-arrow-up"></i>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <div class="flleft">&nbsp;</div>
+            <a href="#" class="btn btn-rounded btn-sm btn-twitter"><i class="fa fa-fw fa-envelope"></i>信息中心</a>
+            <a href="#" class="btn btn-rounded btn-sm btn-facebook"><i class="fa fa-fw fa-book"></i>我的办公桌</a>
+            <a href="#" class="btn btn-rounded btn-sm btn-gplus"><i class="fa fa-fw fa-folder"></i>文档中心</a>
+            <ul class="nav navbar-nav navbar-right hidden-xs nav-user">
+                <li class="hidden-xs">
+                    <a href="#" class="dropdown-toggle dk" data-toggle="dropdown">
+                        <i class="fa fa-bell"></i>
+                        <span class="badge badge-sm up bg-danger m-l-n-sm count">2</span>
+                    </a>
+                    <section class="dropdown-menu aside-xl">
+                        <section class="panel bg-white">
+                            <header class="panel-heading b-light bg-light">
+                                <strong>你有<span class="count">3</span>条消息</strong>
+                            </header>
+                            <div class="list-group list-group-alt animated fadeInRight">
+                                <a href="#" class="media list-group-item">
+                                    <span class="pull-left thumb-sm">
+                                        <img src="Contents/images/avatar.jpg" alt="John said" class="img-circle">
+                                    </span>
+                                    <span class="media-body block m-b-none">加入自动部署上传系统<br>
+                                        <small class="text-muted">10分钟前</small>
+                                    </span>
+                                </a>
+                                <a href="#" class="media list-group-item">
+                                    <span class="media-body block m-b-none">加入办公平台<br>
+                                        <small class="text-muted">1小时前</small>
+                                    </span>
+                                </a>
+                            </div>
+                            <footer class="panel-footer text-sm">
+                                <a href="#" class="pull-right">
+                                    <i class="fa fa-cog"></i>
+                                </a>
+                                <a href="#notes" data-toggle="class:show animated fadeInRight">查看所有消息</a>
+                            </footer>
+                        </section>
+                    </section>
+                </li>
+                <li class="dropdown hidden-xs"><a href="#" class="dropdown-toggle dker" data-toggle="dropdown"><i class="fa fa-fw fa-search"></i></a>
+                    <section class="dropdown-menu aside-xl animated fadeInUp">
+                        <section class="panel bg-white">
+                            <form role="search">
+                                <div class="form-group wrapper m-b-none">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="搜索">
+                                        <span class="input-group-btn">
+                                            <button type="submit" class="btn btn-info btn-icon"><i class="fa fa-search"></i></button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+                        </section>
+                    </section>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="thumb-sm avatar pull-left">
+                            <img src="Contents/images/avatar.jpg">
+                        </span>光宇人<b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight">
+                        <span class="arrow top"></span>
+                        <li><a href="#">修改密码</a> </li>
+                        <li><a href="#">退出</a> </li>
+                    </ul>
+                </li>
+            </ul>
+        </header>
+        <!--主体内容-->
+        <section>
+            <section class="hbox stretch">
+                <!-- 公用左侧导航 -->
+                <aside class="bg-dark lter aside-md hidden-print" id="nav">
+                    <section class="vbox">
+                        <header class="header bg-primary lter text-center clearfix">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-dark btn-icon" title="New project">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                                <div class="btn-group hidden-nav-xs">
+                                    <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">
+                                        添加应用
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu text-left">
+                                        <li><a href="#">添加内部应用</a></li>
+                                        <li><a href="#">添加外部应用</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </header>
+                        <section class="w-f scrollable">
+                            <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="5px" data-color="#333333">
+                                <!-- 左侧大导航 begin -->
+                                <nav class="nav-primary hidden-xs">
+                                    <ul class="nav">
+                                        <li class="active">
+                                            <a href="../../html_V2/Home/index.html" class="active">
+                                                <i class="fa fa-home icon">
+                                                    <b class="bg-danger"></b>
+                                                </i>
+                                                <span>主页</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#办公平台">
+                                                <i class="fa fa-desktop icon">
+                                                    <b class="bg-success"></b>
+                                                </i>
+                                                <span class="pull-right">
+                                                    <i class="fa fa-angle-down text"></i>
+                                                    <i class="fa fa-angle-up text-active"></i>
+                                                </span>
+                                                <span>办公平台</span>
+                                            </a>
+                                            <ul class="nav lt">
+                                                <li>
+                                                    <a href="buttons.html">
+                                                        <i class="fa fa-angle-down text"></i>
+                                                        <i class="fa fa-angle-up text-active"></i>
+                                                        <span>组织机构管理</span>
+                                                    </a>
+                                                    <ul class="nav bg">
+                                                        <li><a href="../../html_V2/Agency/index.html"><i class="fa fa-angle-right"></i><span>机构列表</span> </a></li>
+                                                        <li><a href="../../html_V2/Rank/index.html"><i class="fa fa-angle-right"></i><span>职级列表</span> </a></li>
+                                                        <li><a href="../../html_V2/Post/index.html"><i class="fa fa-angle-right"></i><span>岗位列表</span> </a></li>
+                                                        <li><a href="../../html_V2/Staff/index.html"><i class="fa fa-angle-right"></i><span>员工列表</span> </a></li>
+                                                        <li><a href="../../html_V2/staffapply/index.html"><i class="fa fa-angle-right"></i><span>员工申请列表</span> </a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="icons.html">
+                                                        <i class="fa fa-angle-down text"></i>
+                                                        <i class="fa fa-angle-up text-active"></i>
+                                                        <span>权限管理</span>
+                                                    </a>
+                                                    <ul class="nav bg">
+                                                        <li><a href="../../html_V2/Credential/index.html"><i class="fa fa-angle-right"></i><span>凭据列表</span> </a></li>
+                                                        <li><a href="../../html_V2/Role/index.html"><i class="fa fa-angle-right"></i><span>角色列表</span> </a></li>
+                                                        <li><a href="../../html_V2/OaFunction/QueryPermission.html"><i class="fa fa-angle-right"></i><span>权限查询</span> </a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="#table">
+                                                        <i class="fa fa-angle-down text"></i>
+                                                        <i class="fa fa-angle-up text-active"></i>
+                                                        <span>基础信息管理</span>
+                                                    </a>
+                                                    <ul class="nav bg">
+                                                        <li><a href="../../html_V2/OaApplication/index.html"><i class="fa fa-angle-right"></i><span>应用列表</span> </a></li>
+                                                        <li><a href="../../html_V2/OaModule/index.html"><i class="fa fa-angle-right"></i><span>模块列表</span> </a></li>
+                                                        <li><a href="../../html_V2/OaFunctionGroup/index.html"><i class="fa fa-angle-right"></i><span>功能组列表</span> </a></li>
+                                                        <li><a href="../../html_V2/OaFunction/index.html"><i class="fa fa-angle-right"></i><span>功能列表</span> </a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#uikit">
+                                                <i class="fa fa-upload icon">
+                                                    <b class="bg-info"></b>
+                                                </i>
+                                                <span class="pull-right">
+                                                    <i class="fa fa-angle-down text"></i>
+                                                    <i class="fa fa-angle-up text-active"></i>
+                                                </span><span>自动部署上传系统</span>
+                                            </a>
+                                            <ul class="nav lt">
+                                                <li>
+                                                    <a href="buttons.html">
+                                                        <i class="fa fa-angle-down text"></i>
+                                                        <i class="fa fa-angle-up text-active"></i>
+                                                        <span>上传申请</span>
+                                                    </a>
+                                                    <ul class="nav bg">
+                                                        <li><a href="javascript:;"><i class="fa fa-angle-right"></i><span>项目申请</span></a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-angle-down text"></i>
+                                                        <i class="fa fa-angle-up text-active"></i>
+                                                        <span>上传项目管理</span>
+                                                    </a>
+                                                    <ul class="nav bg">
+                                                        <li><a href="javascript:;"><i class="fa fa-angle-right"></i><span>经理审核项目</span> </a></li>
+                                                        <li><a href="javascript:;"><i class="fa fa-angle-right"></i><span>测试审核项目</span> </a></li>
+                                                        <li><a href="javascript:;"><i class="fa fa-angle-right"></i><span>部署项目至正式</span> </a></li>
+                                                        <li><a href="javascript:;"><i class="fa fa-angle-right"></i><span>历史版本回滚</span> </a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="#table">
+                                                        <i class="fa fa-angle-down text"></i>
+                                                        <i class="fa fa-angle-up text-active"></i>
+                                                        <span>项目版本号管理</span>
+                                                    </a>
+                                                    <ul class="nav bg">
+                                                        <li><a href="javascript:;"><i class="fa fa-angle-right"></i><span>立项版本号分配</span> </a></li>
+                                                        <li><a href="javascript:;"><i class="fa fa-angle-right"></i><span>版本管理</span> </a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="#table">
+                                                        <i class="fa fa-angle-down text"></i>
+                                                        <i class="fa fa-angle-up text-active"></i>
+                                                        <span>基础信息管理</span>
+                                                    </a>
+                                                    <ul class="nav bg">
+                                                        <li><a href="javascript:;"><i class="fa fa-angle-right"></i><span>项目名录管理</span> </a></li>
+                                                        <li><a href="javascript:;"><i class="fa fa-angle-right"></i><span>添加项目</span> </a></li>
+                                                        <li><a href="javascript:;"><i class="fa fa-angle-right"></i><span>新增站点</span> </a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <!-- 左面大导航 end -->
+                            </div>
+                        </section>
+                        <footer class="footer lt hidden-xs b-t b-dark">
+                            <nav class=" on aside-md m-l-n dropup" id="chat">
+                                <ul class="dropdown-menu aside-md panel-body">
+                                    <li><a href="javascript:;">SysV2</a></li>
+                                    <li><a href="javascript:;">Ucenter</a></li>
+                                    <li><a href="javascript:;">中心信息</a></li>
+                                    <li><a href="javascript:;">沟通平台</a></li>
+                                    <li><a href="javascript:;">考勤管理</a></li>
+                                    <li><a href="javascript:;">运维事务</a></li>
+                                </ul>
+                            </nav>
+                            <a href="#nav" data-toggle="class:nav-xs" class="pull-right btn btn-sm btn-dark btn-icon">
+                                <i class="fa fa-angle-left text"></i>
+                                <i class="fa fa-angle-right text-active"></i>
+                            </a>
+                            <div class="btn-group hidden-nav-xs">
+                                <button type="button" title="Chats" class="btn  btn-dark" data-toggle="dropdown" data-target="#chat">
+                                    <i class="fa fa-laptop"></i>
+                                    外部系统
+                                </button>
+                            </div>
+                        </footer>
+                    </section>
+                </aside>
+                <!-- 中间内容部分-->
+                <section id="content">
+                    <section class="vbox">
+                        <!--头部功能-->
+                        <header class="header bg-white b-b clearfix">
+                            <div class="row m-t-sm">
+                                <label class="col-sm-1 control-label">预约日期:</label>
+                                <div class="col-sm-2 m-b-xs">
+                                    <input class="form-control input-sm" name="startTime" id="startTime" onfocus="WdatePicker({skin:'twoer',readOnly:true,minDate:'%y-%M-%d',dateFmt:'yyyy/MM/dd'})" />
+                                </div>
+                                <label class="col-lg-0-96 control-label">会议室地点:</label>
+                                <div class="col-sm-2 m-b-xs">
+                                    <select class="form-control input-sm">
+                                        <option value="0">请选择</option>
+                                        <option value="0">会议室</option>
+                                    </select>
+                                </div>
+                                <label class="col-lg-0-96 control-label">投影仪:</label>
+                                <div class="col-sm-1 m-b-xs">
+                                    <select class="form-control input-sm">
+                                        <option value="0">全部</option>
+                                        <option value="0">是</option>
+                                        <option value="0">否</option>
+                                    </select>
+                                </div>
+                                <label class="col-lg-0-96 control-label">电脑:</label>
+                                <div class="col-sm-1 m-b-xs">
+                                    <select class="form-control input-sm">
+                                        <option value="0">全部</option>
+                                        <option value="0">是</option>
+                                        <option value="0">否</option>
+                                    </select>
+                                </div>
+                                <a class="btn btn-sm btn-info btn-margin-l-01">查询</a>
+                            </div>
+                        </header>
+                        <!--表格主体-->
+                        <section class="scrollable padder" style="margin-top: 20px;">
+                            <div class="m-b-md">
+                            </div>
+                            <!--数据表格  begin -->
+                            <section class="panel">
+                                <table style="width:100%;" cellspacing="5"  class="order_containers">
+                                    <tr class="time_pointTr">
+                                        <th></th>
+                                        <th>9:00</th>
+                                        <th>10:00</th>
+                                        <th>11:00</th>
+                                        <th>12:00</th>
+                                        <th>13:00</th>
+                                        <th>14:00</th>
+                                        <th>15:00</th>
+                                        <th>16:00</th>
+                                        <th>17:00</th>
+                                        <th>18:00</th>
+                                    </tr>
+                                    <tr class="meet_roomTr">
+                                        <th>一号会议室</th>
+                                        <td data-x="9" data-y="1" class="room_selected"><a href="#" style="display:block;" data-toggle="tooltip" title="开发部绩效打分会议---张三预定">取消</a></td>
+                                        <td data-x="10" data-y="1" class="js_waitSelect"></td>
+                                        <td data-x="11" data-y="1" class="js_waitSelect"></td>
+                                        <td data-x="12" data-y="1" class="js_waitSelect"></td>
+                                        <td data-x="13" data-y="1" class="js_waitSelect"></td>
+                                        <td data-x="14" data-y="1" class="js_waitSelect"></td>
+                                        <td data-x="15" data-y="1" class="js_waitSelect"></td>
+                                        <td data-x="16" data-y="1" class="js_waitSelect"></td>
+                                        <td data-x="17" data-y="1" class="js_waitSelect"></td>
+                                        <td data-x="18" data-y="1" class="js_waitSelect"></td>
+                                    </tr>
+                                    <tr class="meet_roomTr">
+                                        <th>二号会议室</th>
+                                        <td data-x="9" data-y="2" class="room_selected"><a href="#" style="display:block;" data-toggle="tooltip" title="开发部绩效打分会议---张三预定">取消</a></td>
+                                        <td data-x="10" data-y="2" class="js_waitSelect"></td>
+                                        <td data-x="11" data-y="2" class="js_waitSelect"></td>
+                                        <td data-x="12" data-y="2" class="js_waitSelect"></td>
+                                        <td data-x="13" data-y="2" class="js_waitSelect"></td>
+                                        <td data-x="14" data-y="2" class="js_waitSelect"></td>
+                                        <td data-x="15" data-y="2" class="js_waitSelect"></td>
+                                        <td data-x="16" data-y="2" class="js_waitSelect"></td>
+                                        <td data-x="17" data-y="2" class="js_waitSelect"></td>
+                                        <td data-x="18" data-y="2" class="js_waitSelect"></td>
+                                    </tr>
+                                    <tr class="meet_roomTr">
+                                        <th>三号会议室</th>
+                                        <td data-x="9" data-y="1" class="room_selected"><a href="#" style="display:block;" data-toggle="tooltip" title="开发部绩效打分会议---张三预定">取消</a></td>
+                                        <td data-x="10" data-y="1" class="js_waitSelect"></td>
+                                        <td data-x="11" data-y="1" class="js_waitSelect"></td>
+                                        <td data-x="12" data-y="1" class="js_waitSelect"></td>
+                                        <td data-x="13" data-y="1" class="js_waitSelect"></td>
+                                        <td data-x="14" data-y="1" class="js_waitSelect"></td>
+                                        <td data-x="15" data-y="1" class="js_waitSelect"></td>
+                                        <td data-x="16" data-y="1" class="js_waitSelect"></td>
+                                        <td data-x="17" data-y="1" class="js_waitSelect"></td>
+                                        <td data-x="18" data-y="1" class="js_waitSelect"></td>
+                                    </tr>
+                                    <tr class="meet_roomTr">
+                                        <th>四号会议室</th>
+                                        <td data-x="9" data-y="1" class="room_selected"><a href="#" style="display:block;" data-toggle="tooltip" title="开发部绩效打分会议---张三预定">取消</a></td>
+                                        <td data-x="10" data-y="1" class="js_waitSelect"></td>
+                                        <td data-x="11" data-y="1" class="js_waitSelect"></td>
+                                        <td data-x="12" data-y="1" class="js_waitSelect"></td>
+                                        <td data-x="13" data-y="1" class="js_waitSelect"></td>
+                                        <td data-x="14" data-y="1" class="js_waitSelect"></td>
+                                        <td data-x="15" data-y="1" class="js_waitSelect"></td>
+                                        <td data-x="16" data-y="1" class="js_waitSelect"></td>
+                                        <td data-x="17" data-y="1" class="js_waitSelect"></td>
+                                        <td data-x="18" data-y="1" class="js_waitSelect"></td>
+                                    </tr>
+                                </table>
+                            </section>
+                        </section>
+
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+    
+    <div class="modal fade" id="orderForm">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">会议室预约</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" id="form1">
+                        <p class="js_Message text-center text-danger m-t-sm m-b-none"></p>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">会议室：</label>
+                            <div class="col-sm-7">
+                                <span class="border_none js_serverID"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">预约人：</label>
+                            <div class="col-sm-7">
+                                <span class="border_none js_activityName"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">预约起始时间：</label>
+                            <div class="col-sm-4">
+                                <input class="form-control input-sm" name="startTime" id="Text1" onfocus="WdatePicker({skin:'twoer',readOnly:true,minDate:'%y-%M-%d',dateFmt:'yyyy/MM/dd'})" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">预约结束时间：</label>
+                            <div class="col-sm-4">
+                                <input class="form-control input-sm" name="endTime" id="endTime" onfocus="WdatePicker({skin:'twoer',readOnly:true,minDate:'%y-%M-%d',dateFmt:'yyyy/MM/dd'})"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">会议主题：</label>
+                            <div class="col-sm-4">
+                                <input class="form-control input-sm" name="title" id="title" maxlength="50" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">参会人：</label>
+                            <div class="col-sm-8">
+                                <div id="OaSearchStaff" class="form-control">
+                                    <input type="text"  class="js_oaSearch"  value="">
+                                    <input type="hidden" class="js_oaSearchResult" value="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">会前提醒：</label>
+                            <div class="col-sm-8" style="margin-top:5px;">
+                                <label for="rtx">RTX</label>
+                                <input type="checkbox" id="rtx">
+                                <label class="margin_left_01" for="mail">邮件</label>
+                                <input type="checkbox" id="mail">
+                                <label class="margin_left_01" for="oamessage">OA消息</label>
+                                <input type="checkbox" id="oamessage">
+                                <label class="margin_left_01" for="message">短信</label>
+                                <input type="checkbox" id="message">
+                                <p class="">(会议前10分钟提醒)</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-info js_delete_Btn">确认</button>
+                    <button type="button" class="btn btn-default close_js_Msg" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/jquery.OASearch.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            //参会人
+            $("#OaSearchStaff").OaSearch();
+            var startIndexY = {};
+            var endIndexY = {};
+            //选择会议室
+            selected();
+            //表单取消按钮
+            $(".close_js_Msg,.close").click(function () {
+                $(".js_oaSearch").val("");
+                $("input:checkbox").attr("checked",false);
+            });
+
+            //选择
+            function selected(){
+                $(".js_waitSelect").unbind("mousedown").bind("mousedown", function () {
+                    var x, y;
+                    x = $(this).attr("data-x");
+                    y = $(this).attr("data-y");
+                    startIndexY.x = x;
+                    startIndexY.y = y;
+                });
+                $(".js_waitSelect").unbind("mouseup").bind("mouseup", function () {
+                    var x, y, $this;
+                    x = $(this).attr("data-x");
+                    y = $(this).attr("data-y");
+                    endIndexY.x = x;
+                    endIndexY.y = y;
+                    $this = $(this);
+
+                    selectTd(startIndexY, endIndexY, $this);
+                });
+                
+            }
+            //选中
+            function selectTd(start, end, obj) {
+
+                //alert(start.y + "_" + end.y);
+                if (start.y != end.y) {
+                    alert("请选择同一间会议室");
+                    return false;
+                }
+                var minX, maxX, col, x1, x2, str = "", dataX = "";
+                x1 = parseInt(start.x); //起点
+                x2 = parseInt(end.x);    //终点
+                if (x2 >= x1) {
+                    minX = x1;
+                    maxX = x2;
+                } else {
+                    minX = x2;
+                    maxX = x1;
+                }
+                str = "<a class='js_order' data-toggle='modal' href='#orderForm'>预定</a><a class='js_quite'>取消</a>";
+                    col = (maxX - minX) + 1;
+                    for (i = minX; i <= maxX-1; i++) { 
+                        obj.siblings("td[data-x=" + i + "]").remove();
+                    }
+                    //将选中td的data-x属性拿到，拼成字符串
+                    for (j = minX; j <= maxX; j++) {
+                        dataX += j + ",";
+                    }
+                    obj.attr("data-x", dataX);  //选中后更新data-x属性
+                    obj.attr("colspan", col).addClass("waitSelect").removeClass("js_waitSelect").append(str).unbind("mouseup");
+                    quite();
+
+            }
+            //取消选择
+            function quite() {
+                $(".js_quite").unbind("click").bind("click", function () {
+                    var attrX = [];
+                    var strX = "";
+                    var objTd = $(this).parent("td");
+                    attrX = objTd.attr("data-x").split(",");
+                    for (i = parseInt(attrX[0]) ; i <= parseInt(attrX[attrX.length - 2]) ; i++) {
+                        strX += '<td data-x=' + i + ' data-y=' + objTd.attr("data-y") + ' class="js_waitSelect"></td>';
+                    }
+                    objTd.after(strX).remove();
+                    selected();
+                });
+            }
+            
+        });
+    </script>
+</body>
+
+</html>
+

@@ -5,9 +5,9 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import cn.gyyx.manage.beans.User;
-import cn.gyyx.manage.common.SessionFactory;
-import cn.gyyx.manage.mapper.UserMapper;
+import cn.gyyx.manage.beans.UserBean;
+import cn.gyyx.manage.common.MybatisSessionFactory;
+import cn.gyyx.manage.dao.UserMapper;
 
 /**
  * -------------------------------------------------------------------------
@@ -22,7 +22,7 @@ import cn.gyyx.manage.mapper.UserMapper;
  */
 public class ConnTest {
 	public static void main(String[] args) {
-		SessionFactory sessionFactory=new SessionFactory();
+		MybatisSessionFactory sessionFactory=new MybatisSessionFactory();
 		SqlSessionFactory sqlSessionFactory=sessionFactory.getInstance();
 		SqlSession sqlSession=sqlSessionFactory.openSession();
 		UserMapper userMapper=sqlSession.getMapper(UserMapper.class);
@@ -38,8 +38,8 @@ public class ConnTest {
 //		userMapper.insert(user);
 //		sqlSession.commit();
 		
-		List<User> userList=userMapper.getAll();
-		for(User user:userList)
+		List<UserBean> userList=userMapper.getAll();
+		for(UserBean user:userList)
 			System.out.println(user.getUserName());
 		
 	}

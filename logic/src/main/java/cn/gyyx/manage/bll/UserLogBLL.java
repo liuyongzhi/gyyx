@@ -2,7 +2,7 @@ package cn.gyyx.manage.bll;
 
 import java.util.List;
 
-import cn.gyyx.manage.beans.UserLog;
+import cn.gyyx.manage.beans.UserLogBean;
 import cn.gyyx.manage.dao.UserLogDao;
 
 /**
@@ -21,20 +21,18 @@ public class UserLogBLL {
 	
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年11月1日
 	 * @描述：得到所有用户的登录日志
 	 * @Title: getAll 
 	 * @Description: TODO 
 	 * @return List<UserLog> 所有用户登录日志列表
 	 */
-	public List<UserLog> getAll(){
+	public List<UserLogBean> getAll(){
 		return userLogDao.getAll();
 	}
 	
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年11月1日
 	 * @描述：向数据库中插入一条用户登录日志
 	 * @Title: insertUserLog 
@@ -42,7 +40,7 @@ public class UserLogBLL {
 	 * @param userLog
 	 * @return Boolean
 	 */
-	public Boolean insertUserLog(UserLog userLog){
+	public Boolean insertUserLog(UserLogBean userLog){
 		return userLogDao.insertUserLog(userLog);
 	}
 }

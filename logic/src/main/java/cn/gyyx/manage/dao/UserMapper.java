@@ -1,7 +1,7 @@
-package cn.gyyx.manage.mapper;
+package cn.gyyx.manage.dao;
 
 import cn.gyyx.manage.base.BaseMapper;
-import cn.gyyx.manage.beans.User;
+import cn.gyyx.manage.beans.UserBean;
 
 /**
  * -------------------------------------------------------------------------
@@ -14,11 +14,10 @@ import cn.gyyx.manage.beans.User;
  * @本类主要用途描述：用户信息映射接口类
  *-------------------------------------------------------------------------
  */
-public interface UserMapper extends BaseMapper<User> {
+public interface UserMapper extends BaseMapper<UserBean> {
 
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年10月29日
 	 * @描述：向us_user_tb中插入数据
 	 * @Title: insertUser 
@@ -26,11 +25,10 @@ public interface UserMapper extends BaseMapper<User> {
 	 * @param user 用户实体类
 	 * @return Boolean
 	 */
-	public Boolean insertUser(User user);
+	public Boolean insertUser(UserBean user);
 	
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年10月29日
 	 * @描述：向us_userinfo_tb中插入数据
 	 * @Title: insertUserInfo 
@@ -38,11 +36,10 @@ public interface UserMapper extends BaseMapper<User> {
 	 * @param user 用户实体类
 	 * @return Boolean
 	 */
-	public Boolean insertUserInfo(User user);
+	public Boolean insertUserInfo(UserBean user);
 	
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年10月29日
 	 * @描述：更新表us_user_tb中的数据
 	 * @Title: updateUser 
@@ -50,11 +47,10 @@ public interface UserMapper extends BaseMapper<User> {
 	 * @param user 用户实体类
 	 * @return Boolean
 	 */
-	public Boolean updateUser(User user);
+	public Boolean updateUser(UserBean user);
 	
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年10月29日
 	 * @描述：更新表us_userinfo_tb中的数据
 	 * @Title: updateUserInfo 
@@ -62,11 +58,10 @@ public interface UserMapper extends BaseMapper<User> {
 	 * @param user 用户实体类
 	 * @return Boolean
 	 */
-	public Boolean updateUserInfo(User user);
+	public Boolean updateUserInfo(UserBean user);
 	
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年10月29日
 	 * @描述：删除用户表中的信息
 	 * @Title: deleteUser 
@@ -74,11 +69,10 @@ public interface UserMapper extends BaseMapper<User> {
 	 * @param user 用户实体类
 	 * @return Boolean
 	 */
-	public Boolean deleteUser(User user);
+	public Boolean deleteUser(UserBean user);
 	
 	/**
 	 * 
-	 * @作者：liuyongzhi
 	 * @日期：2014年10月29日
 	 * @描述：输出用户详细信息表中的信息
 	 * @Title: deleteUserInfo 
@@ -86,7 +80,7 @@ public interface UserMapper extends BaseMapper<User> {
 	 * @param user 用户实体类
 	 * @return Boolean
 	 */
-	public Boolean deleteUserInfo(User user);
+	public Boolean deleteUserInfo(UserBean user);
 	
 	
 }
