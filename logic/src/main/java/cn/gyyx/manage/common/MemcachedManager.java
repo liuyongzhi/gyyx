@@ -1,11 +1,11 @@
 package cn.gyyx.manage.common;
 
 import java.io.IOException;
-import java.util.concurrent.TimeoutException;
 
 import net.rubyeye.xmemcached.MemcachedClient;
 import net.rubyeye.xmemcached.XMemcachedClient;
-import net.rubyeye.xmemcached.exception.MemcachedException;
+
+
 
 /**
  * -------------------------------------------------------------------------

@@ -12,8 +12,8 @@
 
 	<!-- 为实体类起别名 -->
 	<typeAliases>
-		<typeAlias type="cn.gyyx.manage.beans.User" alias="User" />
-		<typeAlias type="cn.gyyx.manage.beans.UserLog" alias="UserLog"/>
+		<typeAlias type="cn.gyyx.manage.beans.UserBean" alias="User" />
+		<typeAlias type="cn.gyyx.manage.beans.UserLogBean" alias="UserLog"/>
 	</typeAliases>
 	
 	<!-- 为数据库链接指定用户名、密码、URL链接 -->

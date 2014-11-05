@@ -16,12 +16,20 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
+<<<<<<< HEAD
 			<name>org.eclipse.wst.validation.validationbuilder</name>
+=======
+			<name>org.eclipse.m2e.core.maven2Builder</name>
+>>>>>>> 4948e0c9ad1e42ca317eddb81dc22f4079ea6eec
 			<arguments>
 			</arguments>
 		</buildCommand>
 		<buildCommand>
+<<<<<<< HEAD
 			<name>org.eclipse.m2e.core.maven2Builder</name>
+=======
+			<name>org.eclipse.wst.validation.validationbuilder</name>
+>>>>>>> 4948e0c9ad1e42ca317eddb81dc22f4079ea6eec
 			<arguments>
 			</arguments>
 		</buildCommand>
